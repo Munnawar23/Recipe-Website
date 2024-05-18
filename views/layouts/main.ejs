@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>
+        <%= typeof title != 'undefined' ? title: 'Cooking Blog' %> 
+    </title>
+</head>
+<body>
+    <div class="container-xxl px-10 bg-black text-white shadow-lg">
+
+        <header class="flex flex-wrap items-center justify-center md:justify-between py-3 mb-4 border-b">
+          <a href="/" class="flex items-center md:w-1/4 mb-2 md:mb-0 text-gray-900 no-underline">
+            <img src="/images/logo.jpg" width="80" height="68" alt="Cooking Blog - Made with Node.js">
+          </a>
+    
+          <ul class="nav flex w-full md:w-auto mb-2  justify-center md:mb-0">
+            <li><a href="/" class="nav-link px-2 text-white hover:text-gray-400">Home</a></li>
+            <li><a href="/submit-recipe" class="nav-link px-2 text-white hover:text-gray-400">Submit</a></li>
+            <li><a href="mailto:munawwarh48@gmail.com" class="nav-link px-2 text-white  hover:text-gray-400">Contact</a></li>
+          </ul>
+    
+          <div class="w-1/4 text-right ">
+            <form method="POST" action="/search">
+              <input type="search" name="searchTerm" class="form-control form-input block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-black bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search..." aria-label="Search">
+            </form>
+          </div>
+        </header>
+    
+        <main>
+          <%- body -%>
+        </main>
+    
+        <footer class="py-5">
+          <p>Build by Munnawar</p>
+        </footer>
+    
+      </div>
+      <script src="/js/script.js"></script>
+</body>
+</html>

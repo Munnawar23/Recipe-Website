@@ -1,0 +1,193 @@
+<div class="flex flex-col lg:flex-row-reverse items-center gap-5 py-4 mb-4">
+  <div class="w-full lg:w-1/2">
+    <img src="/images/hero-image.png" width="500" height="500" class="block mx-auto max-w-full h-auto" loading="lazy" alt="Cooking With Node.js">
+  </div>
+
+  <div class="w-full lg:w-1/2">
+    <h1 class="text-4xl font-bold mb-2">Huge selection of delicious recipe ideas</h1>
+    <p class="text-lg mb-8 leading-relaxed">
+      Explore our huge selection of delicious recipe ideas including; easy desserts, delicious vegan and vegetarian dinner ideas, gorgeous pasta recipes, quick bakes, family-friendly meals and gluten-free recipes.
+    </p>
+
+    <div class="flex flex-col md:flex-row gap-2 md:justify-start">
+      <a href="/explore-latest" class="bg-blue-700 text-white text-lg px-4 py-2 rounded-lg shadow hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50">Explore Latest</a>
+      <a href="/explore-random" class="bg-zinc-800 border border-gray-300 text-lg px-4 py-2 rounded-lg shadow hover:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50">Explore Random</a>
+    </div>
+
+  </div>
+
+</div>
+
+<!--categories-->
+<div class="flex flex-wrap gap-5 lg:gap-10 py-4">
+<% if(categories != '') { %>
+  <% categories.forEach(function(categories, index){ %>
+
+    <a href="/categories/<%- categories.name %> " class="w-1/2 lg:w-1/6 text-center category__link">
+      <div class="category__img shadow">
+        <img src="images/<%- categories.image %>" alt="<%- categories.name %>" loading="lazy">
+      </div>
+      <div class="pt-1"><%- categories.name %></div>
+    </a>
+    <% } ) %>
+    <% } %>
+
+    <a href="/categories" class="w-1/2 lg:w-1/6 text-center category__link">
+      <div class="category__img shadow">
+        <img src="images/view-all.jpg" alt="View All Categories" loading="lazy">
+      </div>
+      <div class="pt-1">View All</div>
+    </a>
+    
+  </div>
+  
+  <!--latest-->
+  <section class="pb-4 pt-4 text-white">
+    <div class="flex mb-2 items-center">
+      <h2>Latest Recipes</h2>
+      <a href="/explore-latest" class="ml-auto">View More</a>
+    </div>
+
+    
+  <div class="flex flex-wrap gap-2 text-white lg:gap-7">
+
+    <% if(food != ''){ %>
+      <% food.latest.forEach(function(recipe, index){ %>
+      <a href="/recipe/<%= recipe._id %>" class="w-1/2 lg:w-1/5 text-center category__link">
+        <div class="category__img category__img--large shadow">
+          <img src="uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+        </div> 
+        <div class="pt-1"><%= recipe.name %></div>
+     </a>
+        <% }) %>
+       <% } else{ %>
+        <p>N items found</p>
+        <% } %>
+  </div>
+  
+    
+  </section>
+
+
+
+    <!--Thai-->
+    <section class="pb-4 pt-4 text-white">
+      <div class="flex mb-2 items-center">
+        <h2>Thai Recipes</h2>
+        <a href="/categories/Thai" class="ml-auto">View More</a>
+      </div>
+  
+      
+    <div class="flex flex-wrap gap-2 text-white lg:gap-7">
+  
+      <% if(typeof food.thai !== 'undefined' && food.thai.length > 0){ %>
+        <% food.thai.forEach(function(recipe, index){ %>
+        <a href="/recipe/<%= recipe._id %>" class="w-1/2 lg:w-1/5 text-center category__link">
+          <div class="category__img category__img--large shadow">
+            <img src="uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+          </div> 
+          <div class="pt-1"><%= recipe.name %></div>
+        </a>
+        <% }) %>
+       <% } else{ %>
+        <p>N items found</p>
+        <% } %>
+    </div>
+    
+      
+    </section>
+
+
+    <!--American-->
+    <section class="pb-4 pt-4 text-white">
+      <div class="flex mb-2 items-center">
+        <h2>American Recipes</h2>
+        <a href="/categories/American" class="ml-auto">View More</a>
+      </div>
+  
+      
+    <div class="flex flex-wrap gap-2 text-white lg:gap-7">
+  
+      <% if(food.american != ''){ %>
+        <% food.american.forEach(function(recipe, index){ %>
+        <a href="/recipe/<%= recipe._id %>" class="w-1/2 lg:w-1/5 text-center category__link">
+          <div class="category__img category__img--large shadow">
+            <img src="uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+          </div> 
+          <div class="pt-1"><%= recipe.name %></div>
+        </a>
+        <% }) %>
+       <% } else{ %>
+        <p>N items found</p>
+        <% } %>
+    </div>
+    
+      
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <!--Chinese-->
+    <section class="pb-4 pt-4 text-white">
+      <div class="flex mb-2 items-center">
+        <h2>Chinese Recipes</h2>
+        <a href="/categories/Chinese" class="ml-auto">View More</a>
+      </div>
+  
+      
+    <div class="flex flex-wrap gap-2 text-white lg:gap-7">
+  
+      <% if(food.chinese != ''){ %>
+        <% food.chinese.forEach(function(recipe, index){ %>
+        <a href="/recipe/<%= recipe._id %>" class="w-1/2 lg:w-1/5 text-center category__link">
+          <div class="category__img category__img--large shadow">
+            <img src="uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+          </div> 
+          <div class="pt-1"><%= recipe.name %></div>
+        </a>
+        <% }) %>
+       <% } else{ %>
+        <p>N items found</p>
+        <% } %>
+    </div>
+    
+      
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <!--Submit-->
+  <section class="px-4 py-5 my-5 text-center">
+    <img src="/images/publish-recipe.png" class="mx-auto mb-4 block w-auto" alt="Publish your recipe for FREE today" width="566" height="208" loading="lazy">
+    <h1 class="text-4xl font-bold">Publish your recipe for FREE today</h1>
+    <div class="mx-auto lg:w-1/2">
+      <p class="text-lg mb-4">Publish your Recipe in front of thousands of people for free.</p>
+      <div class="grid grid-cols-1 gap-2 sm:flex sm:justify-center">
+        <a href="/submit-recipe" class="btn btn-primary btn-dark btn-lg inline-block bg-zinc-800 text-white font-bold py-2 px-4 rounded-lg text-lg leading-normal">Submit Recipe</a>
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
