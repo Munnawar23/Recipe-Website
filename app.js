@@ -26,6 +26,7 @@ app.use(session({
 app.use(flash());
 app.use(fileUpload());
 
+
 // Routes
 const routes = require('./server/routes/indexRoutes');
 app.use("/", routes);
