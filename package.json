@@ -2,7 +2,7 @@
   "name": "recipe-website",
   "version": "1.0.0",
   "description": "This is a recipe website made with express,ejs and mongodb",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js"
